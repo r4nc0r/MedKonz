@@ -1,0 +1,64 @@
+.timeline-circles:hover{
+    cursor: pointer;
+}
+.timeline-container{
+    position: absolute;
+    top:30%;
+    left:35%;
+    text-align: center;
+    min-width: 800px;
+    display: table;
+    width: 800px;
+    margin: auto;
+}
+.timeline-circles-not-first{
+    position: relative;
+    left: -5px;
+}
+.timeline-container > div{
+    display: table-cell;
+    border-spacing: 0px;
+    border-collapse: separate;
+}
+.timeline-reached{
+    color:blue;
+}
+
+.timeline-not-reached-connector {
+    width: 150px;
+    border-bottom: 5px solid black;
+    position: relative;
+    left: -4px;
+}
+.timeline-reached-connector{
+    width: 150px;
+    border-bottom: 5px solid blue;
+    position: relative;
+    left: -4px;
+}
+span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.div2{
+    position: relative;
+    left:-5px;
+}
+.div3{
+    position: relative;
+    left:-10px;
+}
+.div4{
+    position: relative;
+    left:-15px;
+}
+.div5{
+    position: relative;
+    left:-20px;
+}
+.test{
+    position: absolute;
+    top:10%;
+    left:70%;
+}
+

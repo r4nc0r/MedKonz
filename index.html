@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="app.css" type="text/css">
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/angular-resource/angular-resource.min.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" type="text/css">
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="app.js"></script>
+    <title>Title</title>
+</head>
+<body ng-app="myapp" ng-init="vm.Init()">
+<div class="test" ng-if="vm.Comments[0]">
+    test
+</div>
+<div  ng-controller="myappController as vm">
+    <div class="timeline-container">
+        <div ng-repeat="div in vm.Divs track by $index" ng-click="vm.ShowDiv($index)" ng-class="vm.DivPosition[$index]" >
+            <span class="fa fa-3x timeline-circles" ng-class="vm.DivsClass[$index]"></span>
+            <span class="timeline-not-reached-connector" ng-class="vm.DivsConnector[$index]" ng-if="!$last" ></span>
+        </div>
+    </div>
+<div ng-if="vm.Divs[0]">
+
+    bahdflahgflhalkghalhglkhglahglah
+    <img src="elon-musk.jpg">
+</div>
+
+
+</div>
+
+</body>
+</html>
