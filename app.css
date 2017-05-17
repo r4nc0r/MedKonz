@@ -61,3 +61,26 @@ span{
     top:10%;
     left:70%;
 }
+
+.test2{
+    position: absolute;
+    top:60%;
+    left:20%;
+}
+
+.fade-element-in.ng-enter {
+    transition: 0.8s linear all;
+    opacity: 0;
+}
+
+.fade-element-in.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+.fade-element-in.ng-leave {
+    transition: 0.3s linear all;
+    opacity: 1;
+}
+.fade-element-in.ng-leave.ng-leave-active {
+    opacity: 0;
+}

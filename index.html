@@ -6,20 +6,28 @@
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="app.css" type="text/css">
     <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="node_modules/angular-route/angular-route.min.js"></script>
     <script src="node_modules/angular-resource/angular-resource.min.js"></script>
-    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
     <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" type="text/css">
     <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="node_modules/angular-touch/angular-touch.js"></script>
+    <script src="greensock/src/uncompressed/TweenLite.js"></script>
+    <script src="greensock/src/uncompressed/plugins/CSSPlugin.js"></script>
+    <script src="greensock/src/uncompressed/easing/EasePack.js"></script>
     <script src="app.js"></script>
     <title>Title</title>
 </head>
-
-<body ng-app="myapp" ng-init="vm.Init()">
-<div class="test" ng-if="vm.Comments[0]">
-    test
-</div>
-<div  ng-controller="myappController as vm">
+<body ng-app="myapp">
+<div  ng-controller="myappController as vm" >
+    <div class="test fade-element-in" ng-if="vm.Comments[0]" >
+        Wenn etwas wichtig genug ist, dann mach es, auch wenn alle Chancen gegen dich stehen.
+    </div>
+    <div class="test2 fade-element-in" ng-if="vm.Comments[1]">
+        Eine Firma aufzubauen ist wie Kuchen backen. Man braucht von allen Zutaten genau die richtige Menge.
+    </div>
     <div class="timeline-container">
         <div ng-repeat="div in vm.Divs track by $index" ng-click="vm.ShowDiv($index)" ng-class="vm.DivPosition[$index]" >
             <span class="fa fa-3x timeline-circles" ng-class="vm.DivsClass[$index]"></span>
@@ -28,8 +36,42 @@
     </div>
 <div ng-if="vm.Divs[0]">
 
-    bahdflahgflhalkghalhglkhglahglah
-    <img src="elon-musk.jpg">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0"></li>
+            <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="elon-musk.jpg" alt="Los Angeles" >
+            </div>
+
+            <div class="item">
+                <img src="" alt="Chicago">
+            </div>
+
+            <div class="item">
+                <img src="" alt="New York">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+
 </div>
 
 </div>

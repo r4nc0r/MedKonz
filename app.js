@@ -1,26 +1,34 @@
 (function() {
-    angular.module('myapp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
-        .controller('myappController', function($timeout){
+    angular.module('myapp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', "ngTouch"])
+        .controller('myappController', function($timeout, $q){
          var vm = this;
             vm.ShowDiv=showdiv;
-            vm.Init=init();
+            vm.$onInit=init();
             vm.Divs =[false, false,false,false,false];
             vm.DivPosition=[,"div2","div3","div4","div5"];
             vm.DivsClass=["fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o"];
             vm.DivsConnector = [];
-            vm.Comments = [false];
+            vm.Comments = [false,false];
 
             function init() {
-                $timeout(function () {
-                    //init();
-                    //var rnd=Math.floor(Math.random()*vm.Comments.length);
-                    vm.Comments[0] = true;
-                    /*$timeout(function () {
-                        vm.Comments[0] = false;
-                    },2000)*/
-                },3000)
+                startQuotes(10000);
+
             }
 
+
+
+            function startQuotes(oldComment) {
+                $timeout(function () {
+                    do
+                        var rnd=Math.floor(Math.random()*vm.Comments.length);
+                    while(rnd ===oldComment);
+                    vm.Comments[rnd] = true;
+                    $timeout(function () {
+                        vm.Comments[rnd] = false;
+                        startQuotes(rnd);
+                    },5000);
+                },3000);
+            }
             function showdiv(number)
             {
                 setTimeline(number);
