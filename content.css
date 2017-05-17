@@ -1,0 +1,120 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url('assets/fonts/open-sans/OpenSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Open Sans";
+    font-style: italic;
+    src: url('assets/fonts/open-sans/OpenSans-Italic.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Open Sans";
+    font-weight: bold;
+    src: url('assets/fonts/open-sans/OpenSans-Bold.ttf') format('truetype');
+}
+body{
+    background-color: #333333  ;
+    height:100%;
+}
+main {
+    text-align: center;
+    position: relative;
+    /*overflow: hidden;*/
+    height: 100vh;
+    font-family: "Open Sans";
+    color: #e2e2e2;
+}
+section {
+    width:100vw;
+    height: 100vh;
+}
+nav {
+    position: fixed;
+    width: 10vw;
+    text-align: left;
+    top: 50vh;
+    background-color: #003979;
+    z-index:900;
+}
+nav ul {
+    list-style: none;
+}
+img {
+    max-width: 50vw;
+}
+.contentBlock {
+    clear: both;
+}
+.textContainer {
+    max-width: 40vw;
+    text-align: right;
+    float: left;
+}
+
+.mediaContainer {
+    max-width: 40vw;
+    float: right;
+}
+/*------LANDING PAGE STUFF-------*/
+#landing #title {
+    position: relative;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+#landing h1{
+    font-size:3em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#landing h2 {
+    font-size:2em;
+    font-weight: 400;
+    margin-top: -0.5em;
+}
+#landing .quote {
+    position: absolute;
+    max-width: 20vw;
+    max-height: 6em;
+    font-style: italic;
+    text-align: justify;
+}
+
+/*------ QUOTES POSITIONING -------*/
+#landing > #quote1 {
+    top: 83vh;
+    left: 18vw;
+}
+#landing > #quote2 {
+    top: 63vh;
+    left: 9vw;
+}#landing > #quote3 {
+     top: 29vh;
+     left: 4vw;
+ }
+#landing > #quote4 {
+    top: 5vh;
+    left: 10vw;
+}
+#landing > #quote5 {
+    top: 7vh;
+    left: 43vw;
+}
+#landing > #quote6 {
+    top: 2vh;
+    left: 73vw;
+}
+#landing > #quote7 {
+    top: 29vh;
+    left: 74vw;
+}
+#landing > #quote8 {
+    top: 52vh;
+    left: 76vw;
+}
+#landing > #quote9 {
+    top: 79vh;
+    left: 61vw;
+}
