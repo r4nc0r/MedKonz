@@ -1,28 +1,34 @@
 (function() {
-    angular.module('myapp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
+    angular.module('myapp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', "ngTouch"])
         .controller('myappController', function($timeout, $q){
          var vm = this;
             vm.ShowDiv=showdiv;
-            vm.$onInit=init(10000);
+            vm.$onInit=init();
             vm.Divs =[false, false,false,false,false];
             vm.DivPosition=[,"div2","div3","div4","div5"];
             vm.DivsClass=["fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o"];
             vm.DivsConnector = [];
             vm.Comments = [false,false];
 
-            function init(oldComment) {
-                    $timeout(function () {
-                        do
-                            var rnd=Math.floor(Math.random()*vm.Comments.length);
-                        while(rnd ===oldComment);
-                            vm.Comments[rnd] = true;
-                            $timeout(function () {
-                                vm.Comments[rnd] = false;
-                                init(rnd);
-                            },5000);
-                        },3000);
+            function init() {
+                startQuotes(10000);
+
             }
 
+
+
+            function startQuotes(oldComment) {
+                $timeout(function () {
+                    do
+                        var rnd=Math.floor(Math.random()*vm.Comments.length);
+                    while(rnd ===oldComment);
+                    vm.Comments[rnd] = true;
+                    $timeout(function () {
+                        vm.Comments[rnd] = false;
+                        startQuotes(rnd);
+                    },5000);
+                },3000);
+            }
             function showdiv(number)
             {
                 setTimeline(number);
