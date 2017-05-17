@@ -19,12 +19,16 @@
     <script src="greensock/src/uncompressed/plugins/CSSPlugin.js"></script>
     <script src="greensock/src/uncompressed/easing/EasePack.js"></script>
     <script src="app.js"></script>
-    <script src="pictureViewer.js"></script>
     <title>Title</title>
 </head>
 <body ng-app="myapp">
 <div  ng-controller="myappController as vm" >
 
+    <div uib-carousel active="vm.active" interval="vm.myInterval" no-wrap="vm.noWrapSlides" template-url="node_modules/angular-ui-bootstrap/template/carousel/carousel.html" >
+        <div uib-slide ng-repeat="image in vm.Images track by image.id" index="image.id" template-url="node_modules/angular-ui-bootstrap/template/carousel/slide.html">
+            <img ng-src="{{image.image}}" style="margin:auto;">
+        </div>
+    </div>
 
 
 

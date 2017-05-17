@@ -1,5 +1,5 @@
 (function() {
-    angular.module('myapp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', "ngTouch", "pictureViewer"])
+    angular.module('myapp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', "ngTouch"])
         .controller('myappController', function($timeout, $q){
          var vm = this;
             vm.ShowDiv=showdiv;
@@ -9,6 +9,13 @@
             vm.contentDivsClass=["fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o"];
             vm.contentDivsConnector = [];
             vm.Comments = [false,false,false,false,false,false,false,false];
+            vm.Images=[
+                {image: "assets/images/1_Persönlich/Elon-Musk.jpg", id:0},
+                {image: "assets/images/1_Persönlich/Elon-Musk1.jpeg", id:1}
+            ];
+            vm.myInterval = 5000;
+            vm.noWrapSlides = false;
+            vm.active = 0;
 
             function init() {
                 startQuotes(3000);
