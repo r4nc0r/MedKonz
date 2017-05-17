@@ -2,14 +2,12 @@
     cursor: pointer;
 }
 .timeline-container{
-    position: absolute;
-    top:30%;
-    left:35%;
     text-align: center;
     min-width: 800px;
     display: table;
     width: 800px;
     margin: auto;
+    z-index: 700;
 }
 .timeline-circles-not-first{
     position: relative;
