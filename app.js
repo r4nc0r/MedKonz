@@ -11,21 +11,19 @@
             vm.Comments = [false,false];
 
             function init() {
-                startQuotes(10000);
+                startQuotes();
 
             }
 
 
 
-            function startQuotes(oldComment) {
+            function startQuotes() {
                 $timeout(function () {
-                    do
-                        var rnd=Math.floor(Math.random()*vm.Comments.length);
-                    while(rnd ===oldComment);
+                    var rnd=Math.floor(Math.random()*vm.Comments.length);
                     vm.Comments[rnd] = true;
                     $timeout(function () {
                         vm.Comments[rnd] = false;
-                        startQuotes(rnd);
+                        startQuotes();
                     },5000);
                 },3000);
             }
