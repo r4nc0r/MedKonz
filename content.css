@@ -47,13 +47,14 @@ img {
     clear: both;
 }
 .textContainer {
-    max-width: 40vw;
+    max-width: 45vw;
     text-align: right;
     float: left;
 }
 
 .mediaContainer {
-    max-width: 40vw;
+    width: 45vw;
+    height: 30vh;
     float: right;
 }
 /*------LANDING PAGE STUFF-------*/

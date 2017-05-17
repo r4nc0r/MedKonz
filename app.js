@@ -4,39 +4,36 @@
          var vm = this;
             vm.ShowDiv=showdiv;
             vm.$onInit=init();
-            vm.Divs =[false, false,false,false,false];
+            vm.contentDivs =[false,false,false,false,false];
             vm.DivPosition=[,"div2","div3","div4","div5"];
-            vm.DivsClass=["fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o"];
-            vm.DivsConnector = [];
-            vm.Comments = [false,false];
+            vm.contentDivsClass=["fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o"];
+            vm.contentDivsConnector = [];
+            vm.Comments = [false,false,false,false,false,false,false,false];
 
             function init() {
-                startQuotes();
-
+                startQuotes(3000);
             }
 
-
-
-            function startQuotes() {
+            function startQuotes(timer) {
                 $timeout(function () {
                     var rnd=Math.floor(Math.random()*vm.Comments.length);
                     vm.Comments[rnd] = true;
                     $timeout(function () {
                         vm.Comments[rnd] = false;
-                        startQuotes();
+                        startQuotes(0);
                     },5000);
-                },3000);
+                },timer);
             }
             function showdiv(number)
             {
                 setTimeline(number);
-                setAllDivsFalse();
-                vm.Divs[number] = true;
+                setAllcontentDivsFalse();
+                vm.contentDivs[number] = true;
             }
             function resetTimeline() {
-                setAllDivsFalse();
-                setAllDivsClassFalse();
-                setAllDivsConnectorBlack();
+                setAllcontentDivsFalse();
+                setAllcontentDivsClassFalse();
+                setAllcontentDivsConnectorBlack();
             }
             function setTimeline(newStatus) {
                 var lastDiv= getTimelineStatus();
@@ -46,22 +43,22 @@
                 else if(newStatus>=lastDiv){
                     for(var i = 0; i<=newStatus;i++)
                     {
-                        vm.DivsClass[i] ="fa-circle timeline-reached";
-                        vm.DivsConnector[i-1]="timeline-reached-connector";
+                        vm.contentDivsClass[i] ="fa-circle timeline-reached";
+                        vm.contentDivsConnector[i-1]="timeline-reached-connector";
                     }
                 }
                 else if(newStatus< lastDiv){
                     for(var diff = lastDiv-newStatus; diff>0;diff--){
-                        vm.DivsClass[lastDiv]="fa-circle-o";
-                        vm.DivsConnector[lastDiv-1] = "timeline-not-reached-connector";
+                        vm.contentDivsClass[lastDiv]="fa-circle-o";
+                        vm.contentDivsConnector[lastDiv-1] = "timeline-not-reached-connector";
                         lastDiv--;
                     }
                 }
             }
             function getTimelineStatus() {
                 var lastTrueDiv;
-                for(var i =0; i<vm.Divs.length;i++){
-                    if(vm.Divs[i] === true){
+                for(var i =0; i<vm.contentDivs.length;i++){
+                    if(vm.contentDivs[i] === true){
                         lastTrueDiv = i;
                     }
                 }
@@ -70,19 +67,19 @@
                 }
                 return lastTrueDiv;
             }
-            function setAllDivsFalse() {
-                for(var i =0; i<vm.Divs.length;i++){
-                    vm.Divs[i] = false;
+            function setAllcontentDivsFalse() {
+                for(var i =0; i<vm.contentDivs.length;i++){
+                    vm.contentDivs[i] = false;
                 }
             }
-            function setAllDivsClassFalse() {
-                for(var i =0; i<vm.DivsClass.length;i++){
-                    vm.DivsClass[i] = "fa-circle-o";
+            function setAllcontentDivsClassFalse() {
+                for(var i =0; i<vm.contentDivsClass.length;i++){
+                    vm.contentDivsClass[i] = "fa-circle-o";
                 }
             }
-            function setAllDivsConnectorBlack() {
-                for(var i =0; i<vm.DivsConnector.length;i++){
-                    vm.DivsConnector[i] = "timeline-not-reached-connector";
+            function setAllcontentDivsConnectorBlack() {
+                for(var i =0; i<vm.contentDivsConnector.length;i++){
+                    vm.contentDivsConnector[i] = "timeline-not-reached-connector";
                 }
             }
     });
