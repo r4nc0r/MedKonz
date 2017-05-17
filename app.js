@@ -1,5 +1,5 @@
 (function() {
-    angular.module('myapp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', "ngTouch"])
+    angular.module('myapp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', "ngTouch", "pictureViewer"])
         .controller('myappController', function($timeout, $q){
          var vm = this;
             vm.ShowDiv=showdiv;
