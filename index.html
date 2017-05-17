@@ -11,14 +11,20 @@
     <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
     <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" type="text/css">
     <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="greensock/src/uncompressed/TweenLite.js"></script>
+    <script src="greensock/src/uncompressed/plugins/CSSPlugin.js"></script>
+    <script src="greensock/src/uncompressed/easing/EasePack.js"></script>
     <script src="app.js"></script>
     <title>Title</title>
 </head>
-<body ng-app="myapp" ng-init="vm.Init()">
-<div class="test" ng-if="vm.Comments[0]">
-    test
-</div>
-<div  ng-controller="myappController as vm">
+<body ng-app="myapp">
+<div  ng-controller="myappController as vm" >
+    <div class="test fade-element-in" ng-if="vm.Comments[0]" >
+        Wenn etwas wichtig genug ist, dann mach es, auch wenn alle Chancen gegen dich stehen.
+    </div>
+    <div class="test2 fade-element-in" ng-if="vm.Comments[1]">
+        Eine Firma aufzubauen ist wie Kuchen backen. Man braucht von allen Zutaten genau die richtige Menge.
+    </div>
     <div class="timeline-container">
         <div ng-repeat="div in vm.Divs track by $index" ng-click="vm.ShowDiv($index)" ng-class="vm.DivPosition[$index]" >
             <span class="fa fa-3x timeline-circles" ng-class="vm.DivsClass[$index]"></span>

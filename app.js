@@ -1,24 +1,26 @@
 (function() {
     angular.module('myapp', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
-        .controller('myappController', function($timeout){
+        .controller('myappController', function($timeout, $q){
          var vm = this;
             vm.ShowDiv=showdiv;
-            vm.Init=init();
+            vm.$onInit=init(10000);
             vm.Divs =[false, false,false,false,false];
             vm.DivPosition=[,"div2","div3","div4","div5"];
             vm.DivsClass=["fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o"];
             vm.DivsConnector = [];
-            vm.Comments = [false];
+            vm.Comments = [false,false];
 
-            function init() {
-                $timeout(function () {
-                    //init();
-                    //var rnd=Math.floor(Math.random()*vm.Comments.length);
-                    vm.Comments[0] = true;
-                    /*$timeout(function () {
-                        vm.Comments[0] = false;
-                    },2000)*/
-                },3000)
+            function init(oldComment) {
+                    $timeout(function () {
+                        do
+                            var rnd=Math.floor(Math.random()*vm.Comments.length);
+                        while(rnd ===oldComment);
+                            vm.Comments[rnd] = true;
+                            $timeout(function () {
+                                vm.Comments[rnd] = false;
+                                init(rnd);
+                            },5000);
+                        },3000);
             }
 
             function showdiv(number)
