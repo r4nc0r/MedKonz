@@ -41,23 +41,11 @@ nav ul {
     list-style: none;
 }
 img {
-    max-width: 50vw;
-}
-.contentBlock {
-    clear: both;
-}
-.textContainer {
-    max-width: 45vw;
-    text-align: right;
-    float: left;
+    max-width: 100%;
+    max-height: 40vh;
 }
 
-.mediaContainer {
-    width: 45vw;
-    height: 30vh;
-    float: right;
-}
-/*------LANDING PAGE STUFF-------*/
+/*------LANDING PAGE SECTION-------*/
 #landing #title {
     position: relative;
     top: 50vh;
@@ -69,11 +57,13 @@ img {
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 0;
+    width: auto;
 }
 #landing h2 {
     font-size:2em;
     font-weight: 400;
-    margin-top: -0.5em;
+    margin-top: -0.25em;
+    width: auto;
 }
 #landing .quote {
     position: absolute;
@@ -81,6 +71,34 @@ img {
     max-height: 6em;
     font-style: italic;
     text-align: justify;
+}
+
+
+/*------ TIMELINE PAGE SECTION -------*/
+
+
+#timeline-container {
+    position: relative;
+    top: 20vh;
+}
+
+.contentBlock {
+    clear: both;
+    position: relative;
+    top: 30vh;
+}
+.textContainer {
+    max-width: 45vw;
+    text-align: right;
+    float: left;
+    margin: 3vw;
+}
+
+.mediaContainer {
+    width: 45vw;
+    height: 30vh;
+    float: right;
+    margin: 3vw;
 }
 
 /*------ QUOTES POSITIONING -------*/

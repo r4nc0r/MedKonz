@@ -19,18 +19,9 @@
     <script src="greensock/src/uncompressed/plugins/CSSPlugin.js"></script>
     <script src="greensock/src/uncompressed/easing/EasePack.js"></script>
     <script src="app.js"></script>
-    <title>Title</title>
+    <title>Elon Musk</title>
 </head>
-<body ng-app="myapp">
-<div  ng-controller="myappController as vm" >
-
-    <div uib-carousel active="vm.active" interval="vm.myInterval" no-wrap="vm.noWrapSlides" template-url="node_modules/angular-ui-bootstrap/template/carousel/carousel.html" >
-        <div uib-slide ng-repeat="image in vm.Images track by image.id" index="image.id" template-url="node_modules/angular-ui-bootstrap/template/carousel/slide.html">
-            <img ng-src="{{image.image}}" style="margin:auto;">
-        </div>
-    </div>
-
-
+<body ng-app="myapp" ng-controller="myappController as vm" >
 
 <main>
     <nav>
@@ -40,7 +31,8 @@
             <li><a href="#end">end</a></li>
         </ul>
     </nav>
-    <section id="landing" class="wholePage" >
+
+    <section id="landing" class="wholePage" style="background-color: aqua">
         <div id="title">
             <h1>ELON MUSK<!--TODO: Animation auf "Elon Musk"--></h1>
             <h2>Pionier unserer Zeit</h2>
@@ -56,9 +48,9 @@
         <div class="quote fade-element-in" ng-if="vm.Comments[8]" id="quote9">"What makes innovative thinking happen?... I think it's really a mindset. You have to decide."</div>
     </section>
 
-    <section id="timeline" class="wholePage">
+    <section id="timeline" class="wholePage" style="background-color: darkorchid">
 
-        <div class="timeline-container">
+        <div id="timeline-container" class="timeline-container">
             <div ng-repeat="div in vm.contentDivs track by $index" ng-click="vm.ShowDiv($index)" ng-class="vm.DivPosition[$index]" >
                 <span class="fa fa-3x timeline-circles" ng-class="vm.contentDivsClass[$index]"></span>
                 <span class="timeline-not-reached-connector" ng-class="vm.contentDivsConnector[$index]" ng-if="!$last" ></span>
@@ -85,6 +77,12 @@
             <p class="textContainer">SpaceX ist ein Raumfahrtunternehmen, dessen Ziel es ist Technologien zu entwickeln, die es ermöglichen soll den Weltraum zu kolonisieren. Ein Schritt in diese Richtung ist die Entwicklung von wiederverwendbaren Raketen. Nachdem das Unternehmen 2002 gegründet wurde, beschäftigte die Firma nach drei Jahren 150 Mitarbeiter und wurde 2008 offiziell von der NASA für Versorgungsflüge zur ISS beauftragt. Als erstes Unternehmen überhaupt stellte SpaceX mit der Falcon9 einen wiederverwendbaren “Booster” her, und will damit die Kosten der Raumfahrt beträchtlich reduzieren.</p>
 
             <div class="mediaContainer">
+
+                <div uib-carousel active="vm.active" interval="vm.myInterval" no-wrap="vm.noWrapSlides" template-url="node_modules/angular-ui-bootstrap/template/carousel/carousel.html" >
+                    <div uib-slide ng-repeat="image in vm.Images track by image.id" index="image.id" template-url="node_modules/angular-ui-bootstrap/template/carousel/slide.html">
+                        <img ng-src="{{image.image}}" style="margin:auto;">
+                    </div>
+                </div>
 
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -149,11 +147,10 @@
 
     </section>
 
-    <section id="end" class="wholePage">
+    <section id="end" class="wholePage" style="background-color: forestgreen">
         <p>Das ist das Closing.</p>
     </section>
 
 </main>
-</div>
 </body>
 </html>

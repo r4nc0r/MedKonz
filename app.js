@@ -1,7 +1,7 @@
 (function() {
     angular.module('myapp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', "ngTouch"])
         .controller('myappController', function($timeout, $q){
-         var vm = this;
+            var vm = this;
             vm.ShowDiv=showdiv;
             vm.$onInit=init();
             vm.contentDivs =[false,false,false,false,false];
@@ -89,5 +89,5 @@
                     vm.contentDivsConnector[i] = "timeline-not-reached-connector";
                 }
             }
-    });
+        });
 })();

@@ -24,13 +24,13 @@
 
 .timeline-not-reached-connector {
     width: 150px;
-    border-bottom: 5px solid black;
+    border-bottom: 3px dashed #e2e2e2;
     position: relative;
     left: -4px;
 }
 .timeline-reached-connector{
     width: 150px;
-    border-bottom: 5px solid blue;
+    border-bottom: 3px solid #e2e2e2;
     position: relative;
     left: -4px;
 }
