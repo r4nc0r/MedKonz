@@ -20,7 +20,7 @@ body{
 main {
     text-align: center;
     position: relative;
-    /*overflow: hidden;*/
+    overflow: hidden;
     height: 100vh;
     font-family: "Open Sans";
     color: #e2e2e2;
@@ -88,17 +88,17 @@ img {
     top: 30vh;
 }
 .textContainer {
-    max-width: 45vw;
+    max-width: 40vw;
     text-align: right;
     float: left;
-    margin: 3vw;
+    margin: 2.5vw;
 }
 
 .mediaContainer {
-    width: 45vw;
+    width: 40vw;
     height: 30vh;
     float: right;
-    margin: 3vw;
+    margin: 2.5vw;
 }
 
 /*------ QUOTES POSITIONING -------*/

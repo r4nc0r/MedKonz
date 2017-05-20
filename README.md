@@ -3,7 +3,7 @@
 - [ ] Überschrift in Container ausrichten.
 - [ ] Timeline oben schon anzeigen
 
-# Mechanik Page
+# Timeline Page
 - [ ] Timeline gescheit stylen
 - [ ] Timeline trennen - privat / karriere
 - [ ] Media container einbauen
@@ -12,4 +12,8 @@
 - [ ] Steuerung erklären?
 
 # End page
-- [ ] Inhalte?
+- [ ] Inhalte? (Twitter)
+
+# Twitter Feed
+- [ ] Funktion einbinden
+- [ ] Extra Seite?

@@ -9,9 +9,39 @@
             vm.contentDivsClass=["fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o","fa-circle-o"];
             vm.contentDivsConnector = [];
             vm.Comments = [false,false,false,false,false,false,false,false];
-            vm.Images=[
+            vm.Images_personal=[
                 {image: "assets/images/1_Persönlich/Elon-Musk.jpg", id:0},
                 {image: "assets/images/1_Persönlich/Elon-Musk1.jpeg", id:1}
+            ];
+            vm.Images_paypal=[
+                {image: "assets/images/3_PayPal/smartphone1.jpg", id:0},
+                {image: "assets/images/3_PayPal/smartphone2.png", id:1},
+                {image: "assets/images/3_PayPal/whatispaypal.png", id:2},
+                {image: "assets/images/3_PayPal/paypal-working-functioning.png", id:3},
+                {image: "assets/images/3_PayPal/flowChart1.png", id:4},
+                {image: "assets/images/3_PayPal/flowChart2.png", id:5},
+            ];
+            vm.Images_tesla=[
+                {image: "assets/images/4_Tesla/Models/chassis-motor-p90d.jpg", id:0},
+                {image: "assets/images/4_Tesla/Model X/section-exterior-primary.jpg", id:1},
+                {image: "assets/images/4_Tesla/Model X/section-hero-background.jpg", id:2},
+            ];
+            vm.Images_spacex=[
+                {image: "assets/images/5_SpaceX/falcon9-render.png", id:0},
+                {image: "assets/images/5_SpaceX/falcon-heavy-render.png", id:1},
+                {image: "assets/images/5_SpaceX/landing.jpg", id:2},
+                {image: "assets/images/5_SpaceX/launch.jpg", id:3},
+                {image: "assets/images/5_SpaceX/ses10_launch3.jpg", id:4},
+            ];
+            vm.Images_hyperloop=[
+                {image: "assets/images/6_Hyperloop/hyperloop-transportation.jpg", id:0},
+                {image: "assets/images/6_Hyperloop/Hyperloop_all_cutaway.png", id:1},
+                {image: "assets/images/6_Hyperloop/hyperloopconcept.jpg", id:2},
+                {image: "assets/images/6_Hyperloop/image_desert.jpg", id:3},
+                {image: "assets/images/6_Hyperloop/the_hyperloop.png", id:4},
+            ];
+            vm.Images_theboringcompany=[
+                {image: "assets/images/7_The Boring Company/tunnel-boring-company-borer.jpg", id:0},
             ];
             vm.myInterval = 5000;
             vm.noWrapSlides = false;

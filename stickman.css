@@ -1,0 +1,149 @@
+.stickman {
+    height: 7em;
+    width: 5em;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    animation: 0.5s walk-body ease-in infinite;
+    transform: translate(-50%, -50%);
+}
+.stickman .head {
+    height: 5em;
+    width: 5em;
+    position: absolute;
+    top: 0;
+    left: 25%;
+    background-color: #111;
+    border-radius: 100%;
+    z-index: 5;
+}
+
+.stickman .body {
+    height: 6.66667em;
+    width: 0.625em;
+    position: absolute;
+    top: 5em;
+    left: 50%;
+    margin-left: -0.3125em;
+    background-color: #6e6e6e;
+}
+.stickman .body .arm {
+    height: 5em;
+    width: 0.625em;
+    position: absolute;
+    top: 0;
+    transform: rotate(-45deg);
+    transform-origin: top;
+    background-color: #6e6e6e;
+    animation: 1s walk-arm infinite;
+}
+.stickman .body .arm#left {
+    animation-delay: 0.5s;
+    background-color: #6e6e6e;
+}
+.stickman .body .arm#left::after {
+    animation-delay: 0.5s;
+    background-color: #6e6e6e;
+}
+.stickman .body .arm::after {
+    content: "";
+    height: 3.33333em;
+    width: 0.625em;
+    position: absolute;
+    bottom: 0;
+    transform: rotate(90deg);
+    transform-origin: right bottom;
+    background-color: #6e6e6e;
+    animation: 1s walk-arm-after infinite;
+}
+.stickman .body .leg {
+    height: 4.16667em;
+    width: 0.625em;
+    position: absolute;
+    bottom: -4.16667em;
+    transform: rotate(-90deg);
+    transform-origin: top;
+    background-color: #6e6e6e;
+    animation: 1s walk-leg infinite;
+}
+.stickman .body .leg#right {
+    background-color: #6e6e6e;
+    animation-delay: 0.5s;
+}
+.stickman .body .leg#right::after {
+    background-color: #6e6e6e;
+    animation-delay: 0.5s;
+}
+.stickman .body .leg::after {
+    content: "";
+    height: 4.16667em;
+    width: 0.625em;
+    position: absolute;
+    bottom: -4.16667em;
+    transform: rotate(112.5deg);
+    transform-origin: top;
+    background-color: #6e6e6e;
+    animation: 1s walk-leg-after infinite;
+}
+
+@keyframes walk-body {
+    0% {
+        margin-top: -10.25em;
+        padding-bottom: 1.25em;
+    }
+    50% {
+        margin-top: -10em;
+        padding-bottom: 0;
+    }
+    100% {
+        margin-top: -10.25em;
+        padding-bottom: 1.25em;
+    }
+}
+@keyframes walk-arm {
+    0% {
+        transform: rotate(-45deg);
+    }
+    50% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(-45deg);
+    }
+}
+@keyframes walk-arm-after {
+    0% {
+        transform: rotate(67.5deg);
+    }
+    50% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(67.5deg);
+    }
+}
+@keyframes walk-leg {
+    0% {
+        transform: rotate(-50deg);
+    }
+    50% {
+        transform: rotate(25deg);
+    }
+    100% {
+        transform: rotate(-50deg);
+    }
+}
+@keyframes walk-leg-after {
+    0% {
+        transform: rotate(85deg);
+    }
+    25% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(25deg);
+    }
+    100% {
+        transform: rotate(85deg);
+    }
+}
