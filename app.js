@@ -1,6 +1,6 @@
 (function() {
     angular.module('myapp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', "ngTouch"])
-        .controller('myappController', function($timeout, $q){
+        .controller('myappController', function($timeout, $document, $window){
             var vm = this;
             vm.ShowDiv=showdiv;
             vm.$onInit=init();
@@ -19,33 +19,67 @@
                 {image: "assets/images/3_PayPal/whatispaypal.png", id:2},
                 {image: "assets/images/3_PayPal/paypal-working-functioning.png", id:3},
                 {image: "assets/images/3_PayPal/flowChart1.png", id:4},
-                {image: "assets/images/3_PayPal/flowChart2.png", id:5},
+                {image: "assets/images/3_PayPal/flowChart2.png", id:5}
             ];
             vm.Images_tesla=[
                 {image: "assets/images/4_Tesla/Models/chassis-motor-p90d.jpg", id:0},
                 {image: "assets/images/4_Tesla/Model X/section-exterior-primary.jpg", id:1},
-                {image: "assets/images/4_Tesla/Model X/section-hero-background.jpg", id:2},
+                {image: "assets/images/4_Tesla/Model X/section-hero-background.jpg", id:2}
             ];
             vm.Images_spacex=[
                 {image: "assets/images/5_SpaceX/falcon9-render.png", id:0},
                 {image: "assets/images/5_SpaceX/falcon-heavy-render.png", id:1},
                 {image: "assets/images/5_SpaceX/landing.jpg", id:2},
                 {image: "assets/images/5_SpaceX/launch.jpg", id:3},
-                {image: "assets/images/5_SpaceX/ses10_launch3.jpg", id:4},
+                {image: "assets/images/5_SpaceX/ses10_launch3.jpg", id:4}
             ];
             vm.Images_hyperloop=[
                 {image: "assets/images/6_Hyperloop/hyperloop-transportation.jpg", id:0},
                 {image: "assets/images/6_Hyperloop/Hyperloop_all_cutaway.png", id:1},
                 {image: "assets/images/6_Hyperloop/hyperloopconcept.jpg", id:2},
                 {image: "assets/images/6_Hyperloop/image_desert.jpg", id:3},
-                {image: "assets/images/6_Hyperloop/the_hyperloop.png", id:4},
+                {image: "assets/images/6_Hyperloop/the_hyperloop.png", id:4}
             ];
             vm.Images_theboringcompany=[
-                {image: "assets/images/7_The Boring Company/tunnel-boring-company-borer.jpg", id:0},
+                {image: "assets/images/7_The Boring Company/tunnel-boring-company-borer.jpg", id:0}
             ];
             vm.myInterval = 5000;
             vm.noWrapSlides = false;
             vm.active = 0;
+            vm.Move = move;
+            vm.StickPos = [0,0];//x,y
+
+            function move(event) {
+                var stick = $document[0].getElementById("stickman");
+                if(event.key==="ArrowDown")
+                {
+                    vm.StickPos[1]+=10;
+                    TweenLite.to(stick, 1.5, {y:  vm.StickPos[1]});
+                }
+                else if(event.key==="ArrowUp")
+                {
+                    vm.StickPos[1]-=10;
+                    TweenLite.to(stick, 1.5, {y:  vm.StickPos[1]});
+                }
+                else if(event.key==="ArrowRight")
+                {
+                    vm.StickPos[0]+=10;
+                    TweenLite.to(stick, 1.5, {x:  vm.StickPos[0]});
+                }
+                else if(event.key==="ArrowLeft")
+                {
+                    vm.StickPos[0]-=10;
+                    TweenLite.to(stick, 1.5, {x:  vm.StickPos[0]});
+                }
+
+            }
+
+            $window.addEventListener("keydown", function(e) {
+                // space and arrow keys
+                if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+                    e.preventDefault();
+                }
+            }, false);
 
             function init() {
                 startQuotes(3000);

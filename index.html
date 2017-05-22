@@ -22,9 +22,9 @@
     <script src="app.js"></script>
     <title>Elon Musk</title>
 </head>
-<body ng-app="myapp" ng-controller="myappController as vm" >
+<body ng-app="myapp" ng-controller="myappController as vm" ng-keydown="vm.Move($event)">
 
-<main>
+<main >
     <nav>
         <ul>
             <li><a href="#landing">landing</a></li>
@@ -33,7 +33,7 @@
         </ul>
     </nav>
 
-    <div class='stickman'>
+    <div class='stickman' id="stickman">
         <div class='head'>
             <img src="assets/images/portraits/bobblehead.png">
         </div>
@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <section id="landing" class="wholePage" /*style="background-color: aqua"*/>
+    <section id="landing" class="wholePage">
         <div id="title">
             <h1>ELON MUSK<!--TODO: Animation auf "Elon Musk"--></h1>
             <h2>Pionier unserer Zeit</h2>
@@ -61,7 +61,7 @@
         <div class="quote fade-element-in" ng-if="vm.Comments[8]" id="quote9">"What makes innovative thinking happen?... I think it's really a mindset. You have to decide."</div>
     </section>
 
-    <section id="timeline" class="wholePage" /*style="background-color: darkorchid"*/>
+    <section id="timeline" class="wholePage">
 
         <div id="timeline-container" class="timeline-container">
             <div ng-repeat="div in vm.contentDivs track by $index" ng-click="vm.ShowDiv($index)" ng-class="vm.DivPosition[$index]" >
@@ -74,7 +74,6 @@
             <h2>1995: Zip2</h2>
             <p class="textContainer">Erste Firma die Elon Musk mit seinem Bruder Kimbal gründete. Größtes Produkt stellte ein Online-Dienst für Zeitungen dar, dass beispielsweise Stadtkarten und Verzeichnisse zur Verfügung stellte, sowie spezielle Werbeanzeigen bereitstellte, die Kommunikation zwischen Verkäufer und Kunden ermöglichte. Wurde 1999 von Compaq für 307$ Millionen verkauft, wovon 22$ Millionen an Elon Musk gingen.</p>
             <div class="mediaContainer">
-
             </div>
         </div>
 
@@ -146,7 +145,7 @@
 
     </section>
 
-    <section id="end" class="wholePage" /*style="background-color: forestgreen"*/>
+    <section id="end" class="wholePage">
         <p>Das ist das Closing.</p>
     </section>
 
