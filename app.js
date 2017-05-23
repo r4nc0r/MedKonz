@@ -83,6 +83,12 @@
 
             function init() {
                 startQuotes(3000);
+                var stick = $document[0].getElementById("stickman");
+                TweenLite.from(stick, 4,{left:-500});
+                $timeout(function () {
+                    showdiv(0);
+                },1);
+
             }
 
             function startQuotes(timer) {

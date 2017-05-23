@@ -30,6 +30,7 @@ section {
     height: 100vh;
 }
 nav {
+    display: none;
     position: fixed;
     width: 10vw;
     text-align: left;
@@ -45,7 +46,7 @@ img {
     max-height: 40vh;
 }
 
-/*------LANDING PAGE SECTION-------*/
+/*------ LANDING PAGE SECTION-------*/
 #landing #title {
     position: relative;
     top: 50vh;
@@ -71,6 +72,15 @@ img {
     max-height: 6em;
     font-style: italic;
     text-align: justify;
+}
+
+/*------ ENDING PAGE SECTION-------*/
+#ending h1{
+    font-size:3em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: auto;
 }
 
 
