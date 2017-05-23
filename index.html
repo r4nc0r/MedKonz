@@ -22,7 +22,7 @@
     <script src="app.js"></script>
     <title>Elon Musk</title>
 </head>
-<body ng-app="myapp" ng-controller="myappController as vm" ng-keydown="vm.Move($event)">
+<body ng-app="myapp" ng-controller="myappController as vm" ng-keydown="vm.Move($event)" ng-keyup="vm.EndMove($event)">
 
 <main >
     <nav>
@@ -38,10 +38,10 @@
             <img src="assets/images/portraits/bobblehead.png">
         </div>
         <div class='body'>
-            <div class='arm' id='left'></div>
-            <div class='arm' id='right'></div>
-            <div class='leg' id='left'></div>
-            <div class='leg' id='right'></div>
+            <div class='arm' ng-class="{'walking': vm.IsMoving}" id='left'></div>
+            <div class='arm' ng-class="{'walking': vm.IsMoving}" id='right'></div>
+            <div class='leg' ng-class="{'walking': vm.IsMoving}" id='left'></div>
+            <div class='leg' ng-class="{'walking': vm.IsMoving}" id='right'></div>
         </div>
     </div>
 

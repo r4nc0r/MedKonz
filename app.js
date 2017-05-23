@@ -47,12 +47,21 @@
             vm.noWrapSlides = false;
             vm.active = 0;
             vm.Move = move;
+            vm.EndMove = endmove;
             vm.StickPos = [0, 0];//x,y
             vm.Viewport = [$("body").innerWidth(), $("body").innerHeight()];
             vm.InitHeigth = vm.Viewport[1];
             vm.ScrollTo = ['landing', 'timeline', 'end'];
             vm.ScrollIndex = 1;
             vm.ScrollUp = 0;
+            vm.IsMoving = null;
+
+
+            function endmove(event) {
+                if (event.key==="ArrowDown" || event.key==="ArrowUp" ||event.key==="ArrowLeft" || event.key==="ArrowRight") {
+                    vm.IsMoving = false;
+                }
+            }
 
             function move(event) {
                 var stick = $document[0].getElementById("stickman");
@@ -60,21 +69,25 @@
                 {
                     vm.StickPos[1]+=10;
                     TweenLite.to(stick, 1.5, {y:  vm.StickPos[1]});
+                    vm.IsMoving = true;
                 }
                 else if(event.key==="ArrowUp")
                 {
                     vm.StickPos[1]-=10;
                     TweenLite.to(stick, 1.5, {y:  vm.StickPos[1]});
+                    vm.IsMoving = true;
                 }
                 else if(event.key==="ArrowRight")
                 {
                     vm.StickPos[0]+=10;
                     TweenLite.to(stick, 1.5, {x:  vm.StickPos[0]});
+                    vm.IsMoving = true;
                 }
                 else if(event.key==="ArrowLeft")
                 {
                     vm.StickPos[0]-=10;
                     TweenLite.to(stick, 1.5, {x:  vm.StickPos[0]});
+                    vm.IsMoving = true;
                 }
 
                 console.log($(stick).offset().top ,vm.Viewport[1]);

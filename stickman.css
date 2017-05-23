@@ -4,7 +4,6 @@
     position: absolute;
     top: 87%;
     left: 50%;
-    animation: 0.5s walk-body ease-in infinite;
     transform: translate(-50%, -50%);
 }
 .stickman .head {
@@ -35,7 +34,6 @@
     transform: rotate(-45deg);
     transform-origin: top;
     background-color: #6e6e6e;
-    animation: 1s walk-arm infinite;
 }
 .stickman .body .arm#left {
     animation-delay: 0.5s;
@@ -55,7 +53,6 @@
     transform: rotate(70deg);
     transform-origin: right bottom;
     background-color: #6e6e6e;
-    animation: 1s walk-arm-after infinite;
 }
 .stickman .body .leg {
     height: 1.5em;
@@ -65,7 +62,6 @@
     transform: rotate(-90deg);
     transform-origin: top;
     background-color: #6e6e6e;
-    animation: 1s walk-leg infinite;
 }
 .stickman .body .leg#right {
     background-color: #6e6e6e;
@@ -84,8 +80,16 @@
     transform: rotate(112.5deg);
     transform-origin: top;
     background-color: #6e6e6e;
-    animation: 1s walk-leg-after infinite;
     left: 0em;
+}
+.stickman > .walking {
+    animation: 0.5s walk-body ease-in infinite;
+}
+.stickman > .body > .walking  {
+    animation: 1s walk-leg-after infinite;
+}
+.stickman > .arm > .walking {
+    animation: 1s walk-arm infinite;
 }
 
 @keyframes walk-body {
