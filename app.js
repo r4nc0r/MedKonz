@@ -83,7 +83,7 @@
                     $location.hash(vm.ScrollTo[vm.ScrollIndex]);
                     $anchorScroll();
                     vm.ScrollIndex += 1 % 2;
-                    vm.Viewport[1] += vm.Viewport[1];
+                    vm.Viewport[1] +=vm.InitHeigth;
                 }
                 else {
                      switch (vm.ScrollIndex) {
@@ -93,15 +93,15 @@
                             if ($(stick).offset().top < vm.InitHeigth) {
                                 $location.hash(vm.ScrollTo[vm.ScrollIndex-2]);
                                 $anchorScroll();
-                                vm.ScrollIndex -= 1;
+                                vm.ScrollIndex -= 1 %2;
                                 vm.Viewport[1] -= vm.InitHeigth;
                             }
                             break;
                         case 3:
                             if ($(stick).offset().top < (vm.InitHeigth*2)) {
-                                $location.hash(vm.ScrollTo[vm.ScrollIndex - 1]);
+                                $location.hash(vm.ScrollTo[vm.ScrollIndex - 2]);
                                 $anchorScroll();
-                                vm.ScrollIndex -= 1 % 3;
+                                vm.ScrollIndex -= 1 % 2;
                                 vm.Viewport[1] -= vm.InitHeigth;
                             }
                        
