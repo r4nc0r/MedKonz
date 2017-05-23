@@ -1,6 +1,6 @@
 (function() {
-    angular.module('myapp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', "ngTouch"])
-        .controller('myappController', function($timeout, $document, $window){
+    angular.module('myapp', ['ui.bootstrap', 'ngAnimate', "ngTouch"])
+        .controller('myappController', function ($timeout, $document, $window, $location, $anchorScroll){
             var vm = this;
             vm.ShowDiv=showdiv;
             vm.$onInit=init();
@@ -47,7 +47,12 @@
             vm.noWrapSlides = false;
             vm.active = 0;
             vm.Move = move;
-            vm.StickPos = [0,0];//x,y
+            vm.StickPos = [0, 0];//x,y
+            vm.Viewport = [$("body").innerWidth(), $("body").innerHeight()];
+            vm.InitHeigth = vm.Viewport[1];
+            vm.ScrollTo = ['landing', 'timeline', 'end'];
+            vm.ScrollIndex = 1;
+            vm.ScrollUp = 0;
 
             function move(event) {
                 var stick = $document[0].getElementById("stickman");
@@ -72,7 +77,50 @@
                     TweenLite.to(stick, 1.5, {x:  vm.StickPos[0]});
                 }
 
+                console.log($(stick).offset().top ,vm.Viewport[1]);
+
+                if ($(stick).offset().top > (vm.Viewport[1])) {
+                    $location.hash(vm.ScrollTo[vm.ScrollIndex]);
+                    $anchorScroll();
+                    vm.ScrollIndex += 1 % 2;
+                    vm.Viewport[1] += vm.Viewport[1];
+                }
+                else {
+                     switch (vm.ScrollIndex) {
+                        case 1:
+                            break;
+                        case 2:
+                            if ($(stick).offset().top < vm.InitHeigth) {
+                                $location.hash(vm.ScrollTo[vm.ScrollIndex-2]);
+                                $anchorScroll();
+                                vm.ScrollIndex -= 1;
+                                vm.Viewport[1] -= vm.InitHeigth;
+                            }
+                            break;
+                        case 3:
+                            if ($(stick).offset().top < (vm.InitHeigth*2)) {
+                                $location.hash(vm.ScrollTo[vm.ScrollIndex - 1]);
+                                $anchorScroll();
+                                vm.ScrollIndex -= 1 % 3;
+                                vm.Viewport[1] -= vm.InitHeigth;
+                            }
+                       
+                        }
+                }
+               
+                    
+                //if ($(stick).offset().top+100 < vm.ScrollUp) {
+                //    $location.hash(vm.ScrollTo[vm.ScrollIndex-1]);
+                //    $anchorScroll();
+                //    vm.ScrollIndex -= 1 % 3;
+                //    vm.ScrollUp += vm.Viewport[1];
+                //}
+                //var position = $(stick).offset();
+
+                //console.log(position);
             }
+
+           
 
             $window.addEventListener("keydown", function(e) {
                 // space and arrow keys
