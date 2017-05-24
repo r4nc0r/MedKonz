@@ -55,6 +55,14 @@
             vm.ScrollIndex = 1;
             vm.ScrollUp = 0;
             vm.IsMoving = null;
+            vm.TimelineYPosition = (vm.Viewport[1]*20/100);
+            vm.TimelinePointPositions=[
+                {x: $($document[0].getElementById("timelinePoint0")).offset().left , y:$($document[0].getElementById("timelinePoint0")).offset().top},
+                {x: $($document[0].getElementById("timelinePoint1")).offset().left , y:$($document[0].getElementById("timelinePoint1")).offset().top},
+                {x: $($document[0].getElementById("timelinePoint2")).offset().left , y:$($document[0].getElementById("timelinePoint2")).offset().top},
+                {x: $($document[0].getElementById("timelinePoint3")).offset().left , y:$($document[0].getElementById("timelinePoint3")).offset().top},
+                {x: $($document[0].getElementById("timelinePoint4")).offset().left , y:$($document[0].getElementById("timelinePoint4")).offset().top},
+            ];
 
 
             function endmove(event) {
