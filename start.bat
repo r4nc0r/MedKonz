@@ -1,1 +1,1 @@
-start chrome.exe "index.html" --allow-file-access-from-files
+start chrome.exe "%~dp0index.html" --allow-file-access-from-files --window-size=1024,768

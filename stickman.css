@@ -2,8 +2,8 @@
     height: 5em;
     width: 5em;
     position: absolute;
-    top: 87%;
-    left: 50%;
+    top: 60vh;
+    left: 50vw;
     transform: translate(-50%, -50%);
     z-index: 5000;
 }
@@ -153,4 +153,23 @@
     100% {
         transform: rotate(85deg);
     }
+}
+
+        
+@-webkit-keyframes wobble { 
+0% { -webkit-transform: rotate(-20deg); } 
+50% { -webkit-transform: rotate(20deg); } 
+100% { -webkit-transform: rotate(-20deg); } 
+}
+
+@keyframes wobble { 
+0% { transform: rotate(-20deg); } 
+50% { transform: rotate(20deg); } 
+100% { transform: rotate(-20deg); } 
+}
+
+.wobble { 
+-webkit-animation: wobble 0.5s infinite; 
+animation: wobble 0.5s infinite; 
+transform-origin: 50% 100%;
 }

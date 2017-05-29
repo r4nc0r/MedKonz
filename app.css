@@ -1,3 +1,5 @@
+/*------ TIMELINE SHIZZLE -------*/
+
 .timeline-circles:hover{
     cursor: pointer;
 }
@@ -34,10 +36,12 @@
     position: relative;
     left: -4px;
 }
+
 span{
     display: inline-block;
     vertical-align: middle;
 }
+
 .div2{
     position: relative;
     left:-5px;
