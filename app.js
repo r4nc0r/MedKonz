@@ -56,14 +56,8 @@
             vm.ScrollUp = 0;
             vm.IsMoving = null;
             vm.TimelineYPosition = (vm.Viewport[1]*20/100);
-            vm.TimelinePointPositions=[
-                {x: $($document[0].getElementById("timelinePoint0")).offset().left , y:$($document[0].getElementById("timelinePoint0")).offset().top},
-                {x: $($document[0].getElementById("timelinePoint1")).offset().left , y:$($document[0].getElementById("timelinePoint1")).offset().top},
-                {x: $($document[0].getElementById("timelinePoint2")).offset().left , y:$($document[0].getElementById("timelinePoint2")).offset().top},
-                {x: $($document[0].getElementById("timelinePoint3")).offset().left , y:$($document[0].getElementById("timelinePoint3")).offset().top},
-                {x: $($document[0].getElementById("timelinePoint4")).offset().left , y:$($document[0].getElementById("timelinePoint4")).offset().top},
-            ];
-
+            vm.TimelinePointPositions=null;
+            vm.Stick= null;
 
             function endmove(event) {
                 if (event.key === "ArrowDown" || event.key === "ArrowUp" || event.key === "ArrowLeft" || event.key === "ArrowRight") {
@@ -72,31 +66,35 @@
             }
 
             function move(event) {
-                var stick = $document[0].getElementById("stickman");
+
                 if (event.key === "ArrowDown") {
-                    vm.StickPos[1] += 10;
-                    TweenLite.to(stick, 1.5, { y: vm.StickPos[1] });
+                    vm.StickPos[1] += 5;
+                    TweenLite.to(vm.stick, 1.5, { y: vm.StickPos[1], onComplete:colliosonDetection() });
                     vm.IsMoving = true;
                 }
                 else if (event.key === "ArrowUp") {
-                    vm.StickPos[1] -= 10;
-                    TweenLite.to(stick, 1.5, { y: vm.StickPos[1] });
+                    vm.StickPos[1] -= 5;
+                    TweenLite.to(vm.stick, 1.5, { y: vm.StickPos[1], onComplete:colliosonDetection() });
                     vm.IsMoving = true;
                 }
                 else if (event.key === "ArrowRight") {
-                    vm.StickPos[0] += 10;
-                    TweenLite.to(stick, 1.5, { x: vm.StickPos[0] });
+                    vm.StickPos[0] += 5;
+                    TweenLite.to(vm.stick, 1.5, { x: vm.StickPos[0], onComplete:colliosonDetection() });
                     vm.IsMoving = true;
                 }
                 else if (event.key === "ArrowLeft") {
-                    vm.StickPos[0] -= 10;
-                    TweenLite.to(stick, 1.5, { x: vm.StickPos[0] });
+                    vm.StickPos[0] -= 5;
+                    TweenLite.to(vm.stick, 1.5, { x: vm.StickPos[0], onComplete:colliosonDetection() });
                     vm.IsMoving = true;
                 }
 
-                console.log($(stick).offset().top, vm.Viewport[1]);
+                console.log($(vm.stick).offset().top, vm.Viewport[1]);
 
-                if ($(stick).offset().top > (vm.Viewport[1])) {
+
+            }
+
+            function colliosonDetection() {
+                if ($(vm.stick).offset().top > (vm.Viewport[1])) {
                     smoothScroll(vm.ScrollTo[vm.ScrollIndex]);
                     vm.ScrollIndex += 1 % 2;
                     vm.Viewport[1] += vm.InitHeigth;
@@ -106,14 +104,14 @@
                         case 1:
                             break;
                         case 2:
-                            if ($(stick).offset().top < vm.InitHeigth) {
+                            if ($(vm.stick).offset().top < vm.InitHeigth) {
                                 smoothScroll(vm.ScrollTo[vm.ScrollIndex - 2]);
                                 vm.ScrollIndex -= 1 % 2;
                                 vm.Viewport[1] -= vm.InitHeigth;
                             }
                             break;
                         case 3:
-                            if ($(stick).offset().top < (vm.InitHeigth * 2)) {
+                            if ($(vm.stick).offset().top < (vm.InitHeigth * 2)) {
                                 smoothScroll(vm.ScrollTo[vm.ScrollIndex - 2]);
                                 vm.ScrollIndex -= 1 % 2;
                                 vm.Viewport[1] -= vm.InitHeigth;
@@ -121,9 +119,14 @@
 
                     }
                 }
+                if($(vm.stick).offset().top < vm.TimelinePointPositions[0].y +150 && $(vm.stick).offset().top > vm.TimelinePointPositions[0].y - 150 ){
+                    for (var i = 0; i < vm.TimelinePointPositions.length; i++) {
+                        if ($(vm.stick).offset().left < vm.TimelinePointPositions[i].x +50 && $(vm.stick).offset().left > vm.TimelinePointPositions[i].x -50){
+                            showdiv(i);
+                        }
+                    }
+                }
             }
-
-
 
             $window.addEventListener("keydown", function (e) {
                 // space and arrow keys
@@ -134,10 +137,17 @@
 
             function init() {
                 startQuotes(3000);
-                var stick = $document[0].getElementById("stickman");
-                TweenLite.from(stick, 4, { left: -500 });
+                vm.stick = $document[0].getElementById("stickman");
+                TweenLite.from(vm.stick, 4, { left: -500 });
                 $timeout(function () {
-                    showdiv(0);
+                    vm.TimelinePointPositions=[
+                        {x: $($document[0].getElementById("timelinePoint0")).offset().left , y:$($document[0].getElementById("timelinePoint0")).offset().top},
+                        {x: $($document[0].getElementById("timelinePoint1")).offset().left , y:$($document[0].getElementById("timelinePoint1")).offset().top},
+                        {x: $($document[0].getElementById("timelinePoint2")).offset().left , y:$($document[0].getElementById("timelinePoint2")).offset().top},
+                        {x: $($document[0].getElementById("timelinePoint3")).offset().left , y:$($document[0].getElementById("timelinePoint3")).offset().top},
+                        {x: $($document[0].getElementById("timelinePoint4")).offset().left , y:$($document[0].getElementById("timelinePoint4")).offset().top},
+                    ];
+                    showdiv(1);
                 }, 1);
             }
 

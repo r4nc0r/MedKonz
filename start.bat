@@ -1,1 +1,1 @@
-start chrome.exe --allow-file-access-from-files
+start chrome.exe "index.html" --allow-file-access-from-files

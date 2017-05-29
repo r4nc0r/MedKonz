@@ -16,6 +16,7 @@
 body{
     background-color: #333333  ;
     height:100%;
+    overflow: hidden;
 }
 main {
     text-align: center;
