@@ -1,15 +1,32 @@
-
 # Landing Page
-- [ ] Überschrift in Container ausrichten.
+- [x] Überschrift in Container ausrichten.
 - [ ] Timeline oben schon anzeigen
 
 # Timeline Page
 - [ ] Timeline gescheit stylen
 - [ ] Timeline trennen - privat / karriere
-- [ ] Media container einbauen
+- [x] Media container einbauen
 - [ ] Modals einbauen
-- [ ] Stickman und Wobbelkopf
+- [x] Collision Detection
+- [x] AutoScroll
+- [x] Stickman
+- [ ] Wobbelkopf mit Spiegelung links rechts
 - [ ] Steuerung erklären?
+- [ ] Hintergrundvideos
+
+# Einzelne Seiten
+## Zip2
+- [ ] Zentriert
+- [ ] Scribbles?
+## PayPal
+- [ ] Hintergrundvideos
+- [ ] 
+## SpaceX
+- [ ] Hintergrundvideos Starts/Landungen
+## Tesla
+- [ ] Hintergrundvideos Autos
+## The Boring
+- [ ] 
 
 # End page
 - [ ] Inhalte? (Twitter)
